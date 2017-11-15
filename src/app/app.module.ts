@@ -11,6 +11,7 @@ import { AlunosComponent } from './alunos/alunos.component';
 import { AppRoutingModule } from './/app-routing.module';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { AlunoFormularioComponent } from './aluno-formulario/aluno-formulario.component';
+import { AlunoService } from './aluno.service';
 
 
 @NgModule({
@@ -28,7 +29,7 @@ import { AlunoFormularioComponent } from './aluno-formulario/aluno-formulario.co
     FormsModule,
     AppRoutingModule
   ],
-  providers: [HeroService],
+  providers: [HeroService, AlunoService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

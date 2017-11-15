@@ -1,3 +1,4 @@
+<h2>Formulário Aluno</h2>
 <div>
   <div>
     <label>
@@ -62,5 +63,5 @@
     </div>
 
     <button (click)="salvar()">salvar!</button>
-    <button *ngIf="aluno.matricula != 0" (click)="remover()">remover!</button>
+    <button *ngIf="aluno.matricula != null" (click)="remover()">remover!</button>
   </div>

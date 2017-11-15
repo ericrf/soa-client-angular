@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { Aluno } from '../domain/aluno';
-import { HeroService } from '../hero.service';
+import { AlunoService } from '../aluno.service';
 
 @Component({
   selector: 'app-alunos',
@@ -11,13 +11,13 @@ import { HeroService } from '../hero.service';
 export class AlunosComponent implements OnInit {
 
   alunos: Aluno[];
-  constructor(public heroService:HeroService) { }
+  constructor(public service:AlunoService) { }
 
   ngOnInit() {
     this.getAlunos();
   }
   getAlunos(){
-    this.heroService.getAlunos().subscribe(alunos =>{
+    this.service.buscarTodos().subscribe(alunos =>{
       this.alunos = alunos;
     });
   }

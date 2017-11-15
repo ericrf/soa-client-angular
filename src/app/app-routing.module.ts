@@ -8,7 +8,7 @@ import { AlunosComponent } from './alunos/alunos.component';
 import { AlunoFormularioComponent } from './aluno-formulario/aluno-formulario.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
+  { path: '', redirectTo: '/alunos', pathMatch: 'full' },
   { path: 'dashboard', component: DashboardComponent },
   { path: 'heroes', component: HeroesComponent },
   { path: 'detail/:id', component: HeroDetailComponent },

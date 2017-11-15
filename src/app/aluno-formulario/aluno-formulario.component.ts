@@ -2,7 +2,7 @@ import { Component, OnInit, ViewEncapsulation, Input } from '@angular/core';
 import { Aluno } from '../domain/aluno';
 import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
-import { HeroService } from '../hero.service';
+import { AlunoService } from '../aluno.service';
 import { empty } from 'rxjs/Observer';
 
 
@@ -18,23 +18,23 @@ export class AlunoFormularioComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
-    private heroService: HeroService,
+    private service: AlunoService,
     private location: Location) {
       this.aluno = {
-        matricula: 0,
-        cpf:0,
-        nome:"",
-        idade:0,
+        matricula: null,
+        cpf: null,
+        nome:null,
+        idade:null,
         enderecos:[
           {
-            id:0,
-            logradouro:"",
-            numero:0,
-            complemento:"",
-            bairro:"",
-            cep:0,
-            cidade:"",
-            estado:""
+            id:null,
+            logradouro:null,
+            numero:null,
+            complemento:null,
+            bairro:null,
+            cep:null,
+            cidade:null,
+            estado:null
           }
         ]
       }
@@ -47,14 +47,14 @@ export class AlunoFormularioComponent implements OnInit {
   getAluno() {
     const matricula = +this.route.snapshot.paramMap.get('matricula');
     if (!isNaN(matricula))
-      this.heroService.getAluno(matricula).subscribe(aluno => this.aluno = aluno);
+      this.service.buscarPor(matricula).subscribe(aluno => this.aluno = aluno);
   }
 
   salvar() {
-    this.heroService.salvarAluno(this.aluno).subscribe();
+    this.service.salvar(this.aluno).subscribe();
   }
 
   remover(){
-    this.heroService.deletarAluno(this.aluno).subscribe();
+    this.service.deletar(this.aluno).subscribe();
   }
 }

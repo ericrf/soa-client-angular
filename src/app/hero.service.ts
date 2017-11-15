@@ -15,48 +15,7 @@ const httpOptions = {
 @Injectable()
 export class HeroService {
 
-  baseURL: string = 'http://localhost:8080/alunos/';
   constructor(private http: HttpClient) {
-  }
-
-  getAlunos(): Observable<Aluno[]>{
-    return this.http.get<Aluno[]>(this.baseURL);
-  }
-
-  getAluno(matricula: number): Observable<Aluno>{
-    return this.http.get<Aluno>(this.baseURL + matricula);
-  }
-
-  salvarAluno(aluno: Aluno): Observable<Aluno>{
-    return this.http.put<Aluno>(this.baseURL, aluno, httpOptions).pipe(
-      tap(_ => this.log(`persiste aluno matricula=${aluno.matricula}`)),
-      catchError(this.handleError<any>('salvarAluno'))
-    );
-  }
-
-  deletarAluno(aluno: Aluno){
-    return this.http.delete<Aluno>(this.baseURL + aluno.matricula).pipe(
-      tap(_ => this.log(`deleta aluno matricula=${aluno.matricula}`)),
-      catchError(this.handleError<any>('deletarAluno'))
-    );
-  }
-
-  log(m:any){
-    console.log(m);
-  }
-
-  private handleError<T> (operation = 'operation', result?: T) {
-    return (error: any): Observable<T> => {
-   
-      // TODO: send the error to remote logging infrastructure
-      console.error(error); // log to console instead
-   
-      // TODO: better job of transforming error for user consumption
-      this.log(`${operation} failed: ${error.message}`);
-   
-      // Let the app keep running by returning an empty result.
-      return of(result as T);
-    };
   }
 
   getHeroes(): Observable<Hero[]> {
