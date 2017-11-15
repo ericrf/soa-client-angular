@@ -1,0 +1,9 @@
+<h2>Alunos</h2>
+<ul class="heroes">
+  <li *ngFor="let aluno of alunos">
+    <a routerLink="/alunos/{{aluno.matricula}}">
+      <span class="badge">{{aluno.matricula}}</span>
+      <span>{{aluno.nome}}</span>
+    </a>
+  </li>
+</ul>

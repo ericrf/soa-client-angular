@@ -1,0 +1,66 @@
+<div>
+  <div>
+    <label>
+      <span>CPF: </span>
+      <input [(ngModel)]="aluno.cpf" placeholder="CPF">
+    </label>
+  </div>
+  <div>
+      <label>
+        <span>Nome: </span>
+        <input [(ngModel)]="aluno.nome" placeholder="Nome">
+      </label>
+    </div>
+    <div>
+      <label>
+        <span>Idade: </span>
+        <input [(ngModel)]="aluno.idade" placeholder="Idade">
+      </label>
+    </div>
+    <div>Endereço</div>
+    <div>
+      <label>
+        <span>CEP: </span>
+        <input [(ngModel)]="aluno.enderecos[0].cep" placeholder="CEP">
+      </label>
+    </div>
+    <div>
+      <label>
+        <span>Logradouro: </span>
+        <input [(ngModel)]="aluno.enderecos[0].logradouro" placeholder="Logradouro">
+      </label>
+    </div>
+    <div>
+      <label>
+        <span>Numero: </span>
+        <input [(ngModel)]="aluno.enderecos[0].numero" placeholder="Numero">
+      </label>
+    </div>
+    <div>
+      <label>
+        <span>Complemento: </span>
+        <input [(ngModel)]="aluno.enderecos[0].complemento" placeholder="Complemento">
+      </label>
+    </div>
+    <div>
+      <label>
+        <span>Bairro: </span>
+        <input [(ngModel)]="aluno.enderecos[0].bairro" placeholder="Bairro">
+      </label>
+    </div>
+    <div>
+      <label>
+        <span>Cidade: </span>
+        <input [(ngModel)]="aluno.enderecos[0].cidade" placeholder="Cidade">
+      </label>
+    </div>
+    <div>
+      <label>
+        <span>Estado: </span>
+        <input [(ngModel)]="aluno.enderecos[0].estado" placeholder="Estado ">
+      </label>
+    </div>
+
+    <button (click)="salvar()">salvar!</button>
+    <button *ngIf="aluno.matricula != 0" (click)="remover()">remover!</button>
+  </div>
