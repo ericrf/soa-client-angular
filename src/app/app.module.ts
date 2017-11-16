@@ -16,6 +16,7 @@ import { AlunoService } from './aluno.service';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations'
 import {MatMenuModule, MatButtonModule, MatCardModule, MatIconModule, MatToolbarModule,  MatListModule, MatSidenavModule, MatFormFieldModule, MatStepperModule, MatInputModule} from '@angular/material';
 import { CpfPipe } from './cpf.pipe';
+import { SearchPipe } from './search.pipe';
 
 
 @NgModule({
@@ -26,7 +27,8 @@ import { CpfPipe } from './cpf.pipe';
     AlunosComponent,
     DashboardComponent,
     AlunoFormularioComponent,
-    CpfPipe
+    CpfPipe,
+    SearchPipe
   ],
   imports: [
     BrowserModule,

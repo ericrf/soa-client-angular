@@ -46,4 +46,8 @@ export class AlunoFormularioComponent implements OnInit {
   zeraAluno() {
    this.aluno = new Aluno();
   }
+
+  onSubmit(){
+    this.salvar();
+  }
 }

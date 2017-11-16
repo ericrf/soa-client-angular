@@ -1,4 +1,7 @@
-<mat-list-item *ngFor="let aluno of alunos" routerLink="/alunos/{{aluno.matricula}}">
+<mat-form-field class="example-full-width">
+  <input [(ngModel)]="query" matInput placeholder="Pesquisar">
+</mat-form-field>
+<mat-list-item *ngFor="let aluno of alunos | search:'matricula,nome':query" routerLink="/alunos/{{aluno.matricula}}">
   <mat-card>
     <mat-card-title>{{aluno.nome}}</mat-card-title>
     <mat-card-content>
