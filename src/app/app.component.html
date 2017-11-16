@@ -3,12 +3,25 @@
     <span>{{title}}</span>
 
     <span class="example-spacer"></span>
-    <button mat-icon-button routerLink="/alunos">
-      <mat-icon>list</mat-icon>
+    
+    <button mat-icon-button  [matMenuTriggerFor]="menu">
+      <mat-icon>more_vert</mat-icon>
     </button>
-    <button mat-icon-button routerLink="/alunos/0">
-      <mat-icon>create</mat-icon>
-    </button>
+
+    <mat-menu #menu="matMenu">
+
+        <button mat-menu-item routerLink="/alunos/0">
+          <mat-icon>create</mat-icon>
+          <span>Novo</span>
+        </button>
+
+      <button mat-menu-item routerLink="/alunos">
+        <mat-icon>list</mat-icon>
+        <span>Listar</span>
+      </button>
+      
+    </mat-menu>
+
   </mat-toolbar-row>
 </mat-toolbar>
 
