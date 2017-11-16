@@ -14,7 +14,6 @@ const routes: Routes = [
   { path: 'detail/:id', component: HeroDetailComponent },
   { path: 'alunos', component: AlunosComponent },
   { path: 'alunos/:matricula', component: AlunoFormularioComponent },
-  { path: 'alunos/novo', component: AlunoFormularioComponent },
 ];
 
 @NgModule({

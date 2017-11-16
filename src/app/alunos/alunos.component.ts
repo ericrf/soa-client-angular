@@ -6,7 +6,8 @@ import { AlunoService } from '../aluno.service';
   selector: 'app-alunos',
   templateUrl: './alunos.component.html',
   styleUrls: ['./alunos.component.css'],
-  encapsulation: ViewEncapsulation.None
+  encapsulation: ViewEncapsulation.None,
+  
 })
 export class AlunosComponent implements OnInit {
 

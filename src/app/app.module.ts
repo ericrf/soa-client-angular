@@ -13,6 +13,10 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { AlunoFormularioComponent } from './aluno-formulario/aluno-formulario.component';
 import { AlunoService } from './aluno.service';
 
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations'
+import {MatMenuModule, MatButtonModule, MatCardModule, MatIconModule, MatToolbarModule,  MatListModule, MatSidenavModule, MatFormFieldModule, MatStepperModule, MatInputModule} from '@angular/material';
+import { CpfPipe } from './cpf.pipe';
+
 
 @NgModule({
   declarations: [
@@ -21,13 +25,25 @@ import { AlunoService } from './aluno.service';
     HeroDetailComponent,
     AlunosComponent,
     DashboardComponent,
-    AlunoFormularioComponent
+    AlunoFormularioComponent,
+    CpfPipe
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     FormsModule,
-    AppRoutingModule
+    AppRoutingModule,
+    BrowserAnimationsModule,
+    MatMenuModule,
+    MatButtonModule,
+    MatIconModule,
+    MatToolbarModule,
+    MatListModule,
+    MatSidenavModule,
+    MatCardModule,
+    MatFormFieldModule,
+    MatStepperModule,
+    MatInputModule
   ],
   providers: [HeroService, AlunoService],
   bootstrap: [AppComponent]

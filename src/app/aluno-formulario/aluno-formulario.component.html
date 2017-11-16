@@ -1,67 +1,45 @@
-<h2>Formulário Aluno</h2>
-<div>
-  <div>
-    <label>
-      <span>CPF: </span>
-      <input [(ngModel)]="aluno.cpf" placeholder="CPF">
-    </label>
-  </div>
-  <div>
-      <label>
-        <span>Nome: </span>
-        <input [(ngModel)]="aluno.nome" placeholder="Nome">
-      </label>
-    </div>
-    <div>
-      <label>
-        <span>Idade: </span>
-        <input [(ngModel)]="aluno.idade" placeholder="Idade">
-      </label>
-    </div>
-    <div>Endereço</div>
-    <div>
-      <label>
-        <span>CEP: </span>
-        <input [(ngModel)]="aluno.enderecos[0].cep" placeholder="CEP">
-      </label>
-    </div>
-    <div>
-      <label>
-        <span>Logradouro: </span>
-        <input [(ngModel)]="aluno.enderecos[0].logradouro" placeholder="Logradouro">
-      </label>
-    </div>
-    <div>
-      <label>
-        <span>Numero: </span>
-        <input [(ngModel)]="aluno.enderecos[0].numero" placeholder="Numero">
-      </label>
-    </div>
-    <div>
-      <label>
-        <span>Complemento: </span>
-        <input [(ngModel)]="aluno.enderecos[0].complemento" placeholder="Complemento">
-      </label>
-    </div>
-    <div>
-      <label>
-        <span>Bairro: </span>
-        <input [(ngModel)]="aluno.enderecos[0].bairro" placeholder="Bairro">
-      </label>
-    </div>
-    <div>
-      <label>
-        <span>Cidade: </span>
-        <input [(ngModel)]="aluno.enderecos[0].cidade" placeholder="Cidade">
-      </label>
-    </div>
-    <div>
-      <label>
-        <span>Estado: </span>
-        <input [(ngModel)]="aluno.enderecos[0].estado" placeholder="Estado ">
-      </label>
-    </div>
+<mat-horizontal-stepper>
+  <mat-step label="Dados Pessoais">
+    <mat-form-field>
+      <input matInput [(ngModel)]="aluno.cpf" placeholder="CPF">
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput [(ngModel)]="aluno.nome" placeholder="Nome">
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput [(ngModel)]="aluno.idade" placeholder="Idade">
+    </mat-form-field>
+  </mat-step>
+  <mat-step label="Endereço">
+    <mat-form-field>
+      <input matInput [(ngModel)]="aluno.enderecos[0].cep" placeholder="CEP">
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput [(ngModel)]="aluno.enderecos[0].logradouro" placeholder="Logradouro">
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput [(ngModel)]="aluno.enderecos[0].numero" placeholder="Numero">
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput [(ngModel)]="aluno.enderecos[0].complemento" placeholder="Complemento">
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput [(ngModel)]="aluno.enderecos[0].bairro" placeholder="Bairro">
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput [(ngModel)]="aluno.enderecos[0].cidade" placeholder="Cidade">
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput [(ngModel)]="aluno.enderecos[0].estado" placeholder="Estado ">
+    </mat-form-field>
+  </mat-step>
+</mat-horizontal-stepper>
 
-    <button (click)="salvar()">salvar!</button>
-    <button *ngIf="aluno.matricula != null" (click)="remover()">remover!</button>
-  </div>
+<button mat-button mat-raised-button color="primary" (click)="salvar()">
+  <mat-icon>save</mat-icon>
+  <span>Salvar</span>
+</button>
+<button mat-button mat-raised-button color="warn" *ngIf="aluno.matricula != null" (click)="remover()">
+  <mat-icon>delete</mat-icon>
+  <span>Remover</span>
+</button>

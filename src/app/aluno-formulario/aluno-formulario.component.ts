@@ -16,45 +16,34 @@ export class AlunoFormularioComponent implements OnInit {
 
   @Input() aluno: Aluno;
 
+
   constructor(
     private route: ActivatedRoute,
     private service: AlunoService,
     private location: Location) {
-      this.aluno = {
-        matricula: null,
-        cpf: null,
-        nome:null,
-        idade:null,
-        enderecos:[
-          {
-            id:null,
-            logradouro:null,
-            numero:null,
-            complemento:null,
-            bairro:null,
-            cep:null,
-            cidade:null,
-            estado:null
-          }
-        ]
-      }
+    this.zeraAluno();
   }
 
   ngOnInit() {
-    this.getAluno();
+    this.route.params.subscribe(params => { this.getAluno() })
   }
 
   getAluno() {
+    this.zeraAluno();
     const matricula = +this.route.snapshot.paramMap.get('matricula');
-    if (!isNaN(matricula))
-      this.service.buscarPor(matricula).subscribe(aluno => this.aluno = aluno);
+    if (!isNaN(matricula) && matricula > 0)
+      this.service.buscarPor(matricula).subscribe(aluno => this.aluno = aluno); 
   }
 
   salvar() {
-    this.service.salvar(this.aluno).subscribe();
+    this.service.salvar(this.aluno).subscribe(aluno => this.aluno = aluno);
   }
 
-  remover(){
-    this.service.deletar(this.aluno).subscribe();
+  remover() {
+    this.service.deletar(this.aluno).subscribe(() => this.aluno= new Aluno());
+  }
+
+  zeraAluno() {
+   this.aluno = new Aluno();
   }
 }

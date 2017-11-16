@@ -1,9 +1,9 @@
-<h2>Lista de Alunos</h2>
-<ul class="heroes">
-  <li *ngFor="let aluno of alunos">
-    <a routerLink="/alunos/{{aluno.matricula}}">
-      <span class="badge">{{aluno.matricula}}</span>
-      <span>{{aluno.nome}}</span>
-    </a>
-  </li>
-</ul>
+<mat-list-item *ngFor="let aluno of alunos" routerLink="/alunos/{{aluno.matricula}}">
+  <mat-card>
+    <mat-card-title>{{aluno.nome}}</mat-card-title>
+    <mat-card-content>
+      <p matLine> {{aluno.matricula}} </p>
+      <p matLine> {{aluno.cpf | cpf}} </p>
+    </mat-card-content>
+  </mat-card>
+</mat-list-item>
